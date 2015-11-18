@@ -1,0 +1,30 @@
+/*
+ * Copyright 2015 Mittorn <mittorn@sibmail.com>
+ *
+ * Minimal dts file for the Wexler Tab7000 for u-boot only
+ * Based on inet-3f's dts
+ *
+ * SPDX-License-Identifier:     GPL-2.0+ or X11
+ */
+
+/dts-v1/;
+#include "sun4i-a10.dtsi"
+
+/ {
+	model = "Wexler Tab7000";
+	compatible = "wexler,tab7000", "allwinner,sun4i-a10";
+
+	aliases {
+		serial0 = &uart0;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+};
+
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pins_a>;
+	status = "okay";
+};
